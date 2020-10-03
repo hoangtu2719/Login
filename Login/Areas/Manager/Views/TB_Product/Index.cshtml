@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Login.Models.TB_Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/LayoutPage.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_Product)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Img_Product)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_Product)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Img_Product)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdProduct }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdProduct }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdProduct })
+        </td>
+    </tr>
+}
+
+</table>

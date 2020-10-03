@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Layout/LayoutPage.cshtml";
+}
+@using Login.Models;
+@model List<TB_User>
+@{
+    TB_User ses = (TB_User)Session["NguoiDung"];
+}
+@if (ses != null)
+{
+    <h1>Chào: @ses.UserName</h1>
+    <a href="/User/Logout">Đăng xuất</a>
+    <a href="/Manager/TB_Product/Index">Trang quản lí</a>
+}
+else
+{
+<form class="form-class" method="post">
+    <div class="form-group">
+        <label for="exampleInputEmail1" class="login">Log in</label>
+        <input type="text" class="form-control" name="user_name">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" name="user_password">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+}
+
+
